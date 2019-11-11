@@ -1,0 +1,152 @@
+--Q2
+CREATE OR REPLACE TRIGGER diplay_driver
+AFTER UPDATE OR INSERT ON participated
+FOR EACH ROW
+Begin
+FOR name1 in (SELECT name from person where person.driver_id=:new.driver_id)
+LOOP
+DBMS_OUTPUT.PUT_LINE(name1.name);
+END LOOP;
+END;
+/
+
+--Q3
+CREATE OR REPLACE FUNCTION no_of_accidents(yr IN varchar)
+return number AS tot_accd number;
+BEGIN
+select count(distinct report_number) into tot_accd from accident
+where extract(year from accd_date)=yr;
+RETURN tot_accd;
+END;
+/
+
+--Q4
+CREATE OR REPLACE PROCEDURE display_amount(did IN number, yr IN varchar)
+AS tot number;
+BEGIN
+SELECT sum(damage_amount) into tot 
+from accident, participated
+Where participated.driver_id=did and participated.report_number=accident.report_number and extract(year from accd_date)=yr;
+DBMS_OUTPUT.PUT_LINE(tot);
+END;
+/
+
+--Q5
+CREATE OR REPLACE PROCEDURE return_location(n IN varchar2)
+IS
+rno INTEGER;
+ad DATE;
+da INTEGER;
+BEGIN
+select report_number INTO rno from participated natural join accident where location = n;
+select accd_date INTO ad from participated natural join accident where location = n;
+select damage_amount INTO da from participated natural join accident where location = n;
+DBMS_OUTPUT.PUT_LINE('Report Number: '||rno||' Accident Date: '||ad||' Damage Amount: '||da||'.');
+END;
+/
+
+--Q6
+CREATE OR REPLACE PROCEDURE P AS
+var1 varchar2(4000);
+BEGIN
+var1:= 'create or replace table T1(custno int, cname varchar(50), city varchar(30), primary key(custno))';
+EXECUTE IMMEDIATE var1;
+INSERT INTO T1(custno, cname, city)
+Select custno, cname, city
+from customer natural join orders
+where ordamt > 10000;
+END;
+/
+
+--Q7
+CREATE OR REPLACE PROCEDURE create_table(name IN varchar)AS
+var1 varchar2(4000);
+BEGIN
+var1:= 'create table ' || name || ' (repno varchar(20), accd_date date, primary key(repno))';
+EXECUTE IMMEDIATE var1;
+END;
+/
+
+CREATE or REPLACE PROCEDURE details_tables IS
+tot number;
+loc varchar(10);
+CURSOR dets_cur IS
+	SELECT location,report_number,accd_date FROM accident order by(location);
+accd_rec dets_cur%rowtype;
+BEGIN
+OPEN dets_cur;
+LOOP
+FETCH dets_cur into accd_rec;
+EXIT WHEN dets_cur%NOTFOUND;
+select count(table_name) into tot from user_tables where table_name=accd_rec.location;
+if tot<1 then
+create_table(accd_rec.location);
+end if;
+select table_name into loc from user_tables where table_name=accd_rec.location;
+insert into loc values(accd_rec.report_number,accd_rec.accd_date);
+END LOOP;
+CLOSE dets_cur;
+END;
+/
+
+--Additional Questions
+
+--Q1
+CREATE table bankaccount(accno int primary key, name varchar(20), balance int not null, check(balance>=1000));
+
+insert into bankaccount values(98765,'Jack',2000);
+
+Create or replace function withdraw(acctno number, wam int)
+return int AS
+obalance int;
+wamount int;
+nbalance int;
+BEGIN
+SELECT balance into obalance from bankaccount
+where accno = acctno;
+nbalance := obalance - wamount;
+if nbalance > 0 then
+DBMS_OUTPUT.PUT_LINE('Low Balance');
+elsif nbalance < 1000 then
+DBMS_OUTPUT.PUT_LINE('Maintain 1000');
+else
+update bankaccount
+	set balance = nbalance 
+	where accno = acctno;
+	DBMS_OUTPUT.PUT_LINE('Done');
+end if;
+return obalance;
+END;
+/
+
+--Q2
+CREATE or replace trigger partic
+after insert on participated
+FOR EACH ROW
+declare
+account int;
+Begin
+if inserting then
+select count(driver_id) into account from participated
+group by driver_id
+having driver_id=:new.driver_id;
+	if account = 2 then
+	DBMS_OUTPUT.PUT_LINE('2 accidents');
+	end if;
+end if;
+end;
+/
+
+--Q3
+CREATE OR REPLACE PROCEDURE discount
+AS
+BEGIN
+for i in (SELECT orderno, ordamt
+from orders natural join order_items
+group by orderno, ordamt 
+having sum(qty)>5)
+LOOP
+DBMS_OUTPUT.PUT_LINE(i.orderno||' '||i.orderamt*0.8);
+END LOOP;
+END;
+/
