@@ -1,0 +1,44 @@
+C:\Users\Someone\Downloads\170953308\Lab1\Lab1.2\bin\Debug\Lab1.2.exe.config
+C:\Users\Someone\Downloads\170953308\Lab1\Lab1.2\bin\Debug\Lab1.2.exe
+C:\Users\Someone\Downloads\170953308\Lab1\Lab1.2\bin\Debug\Lab1.2.pdb
+C:\Users\Someone\Downloads\170953308\Lab1\Lab1.2\obj\Debug\Lab1.2.csprojAssemblyReference.cache
+C:\Users\Someone\Downloads\170953308\Lab1\Lab1.2\obj\Debug\Lab1._2.Form1.resources
+C:\Users\Someone\Downloads\170953308\Lab1\Lab1.2\obj\Debug\Lab1._2.Properties.Resources.resources
+C:\Users\Someone\Downloads\170953308\Lab1\Lab1.2\obj\Debug\Lab1.2.csproj.GenerateResource.cache
+C:\Users\Someone\Downloads\170953308\Lab1\Lab1.2\obj\Debug\Lab1.2.csproj.CoreCompileInputs.cache
+C:\Users\Someone\Downloads\170953308\Lab1\Lab1.2\obj\Debug\Lab1.2.exe
+C:\Users\Someone\Downloads\170953308\Lab1\Lab1.2\obj\Debug\Lab1.2.pdb
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\Lab1.2.exe.config
+C:\Users\MAHE\Desktop\Lab1.2\obj\Debug\Lab1.2.exe
+C:\Users\MAHE\Desktop\Lab1.2\obj\Debug\Lab1.2.pdb
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\Lab1.2.exe
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\Lab1.2.pdb
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\mscorlib.dll
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\System.Net.Http.dll
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\System.Net.Http.xml
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\normidna.nlp
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\normnfc.nlp
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\normnfd.nlp
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\normnfkc.nlp
+C:\Users\MAHE\Desktop\Lab1.2\bin\Debug\normnfkd.nlp
+C:\Users\MAHE\Desktop\Lab1.2\obj\Debug\Lab1.2.csprojResolveAssemblyReference.cache
+C:\Users\MAHE\Desktop\Lab1.2\obj\Debug\Lab1._2.Form1.resources
+C:\Users\MAHE\Desktop\Lab1.2\obj\Debug\Lab1._2.Properties.Resources.resources
+C:\Users\MAHE\Desktop\Lab1.2\obj\Debug\Lab1.2.csproj.GenerateResource.Cache
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\Lab1.2.exe.config
+C:\Users\MAHE\Documents\DBS File\StudentApp\obj\Debug\Lab1.2.exe
+C:\Users\MAHE\Documents\DBS File\StudentApp\obj\Debug\Lab1.2.pdb
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\Lab1.2.exe
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\Lab1.2.pdb
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\mscorlib.dll
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\System.Net.Http.dll
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\System.Net.Http.xml
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\normidna.nlp
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\normnfc.nlp
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\normnfd.nlp
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\normnfkc.nlp
+C:\Users\MAHE\Documents\DBS File\StudentApp\bin\Debug\normnfkd.nlp
+C:\Users\MAHE\Documents\DBS File\StudentApp\obj\Debug\Lab1.2.csprojResolveAssemblyReference.cache
+C:\Users\MAHE\Documents\DBS File\StudentApp\obj\Debug\Lab1._2.Form1.resources
+C:\Users\MAHE\Documents\DBS File\StudentApp\obj\Debug\Lab1._2.Properties.Resources.resources
+C:\Users\MAHE\Documents\DBS File\StudentApp\obj\Debug\Lab1.2.csproj.GenerateResource.Cache
