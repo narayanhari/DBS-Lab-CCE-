@@ -1,0 +1,82 @@
+create table customer(
+custno int,
+cname varchar(50), 
+city varchar(30), 
+primary key(custno)
+);
+
+insert into customer(custno, cname, city) values(1,'Niranjan','Chennai');
+insert into customer(custno, cname, city) values(2,'Sabari','Coimbatore');
+insert into customer(custno, cname, city) values(3,'Lenore','Manipal');
+insert into customer(custno, cname, city) values(4,'Sudharshan','Ooty');
+insert into customer(custno, cname, city) values(5,'Roshan','Chennai');
+
+create table orders(
+orderno int, 
+odate date, 
+custno int, 
+ordamt int, 
+primary key(orderno), 
+foreign key(custno) references customer(custno)
+);
+
+insert into orders(orderno, odate, custno, ordamt) values(12,TO_DATE('2019-07-06', 'YYYY-MM-DD'), 1, 28000);
+insert into orders(orderno, odate, custno, ordamt) values(10,TO_DATE('2012-06-07', 'YYYY-MM-DD'), 2, 50000);
+insert into orders(orderno, odate, custno, ordamt) values(30,TO_DATE('2011-09-27', 'YYYY-MM-DD'), 3, 25000);
+insert into orders(orderno, odate, custno, ordamt) values(50,TO_DATE('2008-06-15', 'YYYY-MM-DD'), 4, 10000);
+insert into orders(orderno, odate, custno, ordamt) values(70,TO_DATE('2008-11-06', 'YYYY-MM-DD'), 5, 15000);
+
+
+create table item(
+itemno int, 
+unitprice int, 
+primary key(itemno)
+);
+
+insert into item(itemno, unitprice) values(21,2000);
+insert into item(itemno, unitprice) values(01,5000);
+insert into item(itemno, unitprice) values(03,2500);
+insert into item(itemno, unitprice) values(05,1000);
+insert into item(itemno, unitprice) values(07,1500);
+
+
+create table order_items(
+orderno int, 
+itemno int, 
+qty int, 
+primary key(orderno, itemno)
+);
+
+insert into order_items(orderno, itemno, qty) values(21, 12, 14);
+insert into order_items(orderno, itemno, qty) values(1, 10, 10);
+insert into order_items(orderno, itemno, qty) values(3, 30, 10);
+insert into order_items(orderno, itemno, qty) values(5, 50, 10);
+insert into order_items(orderno, itemno, qty) values(7, 70, 10);
+
+
+create table warehouse(
+warehouseno int, 
+city varchar(30),
+primary key(warehouseno)
+);
+
+insert into warehouse(warehouseno, city) values(6,'Chennai');
+insert into warehouse(warehouseno, city) values(5,'Ooty');
+insert into warehouse(warehouseno, city) values(15,'Coimbatore');
+insert into warehouse(warehouseno, city) values(25,'Chennai');
+insert into warehouse(warehouseno, city) values(35,'Manipal');
+
+create table shipment(
+orderno int, 
+warehouseno int, 
+shipdate date, 
+primary key(orderno, warehouseno), 
+foreign key(warehouseno) references warehouse(warehouseno)
+);
+
+
+insert into shipment(orderno, warehouseno, shipdate) values(12, 6, TO_DATE('2017-01-17', 'YYYY-MM-DD'));
+insert into shipment(orderno, warehouseno, shipdate) values(10,5, TO_DATE('2019-05-21', 'YYYY-MM-DD'));
+insert into shipment(orderno, warehouseno, shipdate) values(30, 15, TO_DATE('2013-07-23', 'YYYY-MM-DD'));
+insert into shipment(orderno, warehouseno, shipdate) values(50, 25, TO_DATE('2017-06-22', 'YYYY-MM-DD'));
+insert into shipment(orderno, warehouseno, shipdate) values(70, 35, TO_DATE('2014-08-24', 'YYYY-MM-DD'));

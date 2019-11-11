@@ -1,0 +1,34 @@
+select name 
+from customer natural join orders,
+where orders.odate='2015-05-09';
+
+select count(*) as no_of_items
+from order_items
+group by orderno;
+
+
+
+
+
+select orderno,qty
+from order_items
+where qty=(select max(qty) from orde_item);
+
+delete from order_items
+where itemno=1;
+
+select orderno 
+from shipment natural join warehouse
+where warehouse.city='Chennai'
+
+select cname 
+from customer 
+where cname likes '%hav';
+
+select customer 
+from customer natural join orders 
+order by sum(order_amt)desc;
+
+
+
+

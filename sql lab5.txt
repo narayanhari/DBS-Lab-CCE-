@@ -1,0 +1,40 @@
+create table student(
+regno varchar(20),
+name varchar(50),
+major varchar(20),
+bdate date,
+primary key(regno)
+);
+
+insert into student values(170953024,'Madhav',CS,TO_DATE('1998-06-07','yyyy-mm-dd'));
+create table course(
+courseid int, 
+cname varchar(30),
+dept varchar(30),
+primary key(courseid)
+);
+
+create table enroll(
+regno varchar(20), 
+courseid int,
+primary key(regno,courseid),
+foreign key(regno) references student,
+foreign key(courseid) references course
+);
+
+create table book_adoption(
+courseid int, 
+sem int, 
+book_isbn int,
+primary key(courseid,book_isbn),
+foreign key(courseid) references course,
+foreign key(book_isbn) references text
+);
+
+create table text(
+book_isbn int, 
+booktitle varchar(50), 
+publisher varchar(50), 
+author varchar(50),
+primary key(book_isbn)
+);

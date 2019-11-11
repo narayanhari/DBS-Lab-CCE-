@@ -1,0 +1,86 @@
+create table person(
+driver_id varchar(20),
+name varchar(20), 
+Address varchar(20),
+primary key(driver_id)
+);
+
+insert into person values(1,'madhav','Opulence');
+insert into person values(2,'shudhh','Opulence');
+insert into person values(3,'roshan','Opulence');
+insert into person values(4,'dharun','Opulence');
+insert into person values(5,'suriyan','Opulence');
+
+create table car(
+regno varchar(20),
+model varchar(20), 
+Year int,
+primary key(regno)
+);
+
+insert into car values(3022,'bmw',2010);
+insert into car values(3023,'benz',2002);
+insert into car values(3045,'audi',2003);
+insert into car values(3032,'ferrari',2002);
+insert into car values(3343,'benz',2010);
+
+create table accident(
+report_number int,
+accd_date date,
+location varchar(20),
+primary key(report_number)
+);
+
+insert into accident values(12,TO_DATE('2012-06-07','yyyy-mm-dd'),'Chennai');
+insert into accident values(10,TO_DATE('2002-02-03','yyyy-mm-dd'),'Mumbai');
+insert into accident values(3,TO_DATE('2011-08-27','yyyy-mm-dd'),'Chandigarh');
+insert into accident values(5,TO_DATE('2008-05-15','yyyy-mm-dd'),'Pune');
+insert into accident values(7,TO_DATE('2008-11-06','yyyy-mm-dd'),'Manipal');
+/* 
+insert into accident values(7,TO_DATE('2008-04-11','yyyy-mm-dd'),'Alapuzha');
+insert into accident values(7,TO_DATE('2008-07-06','yyyy-mm-dd'),'Ladakh');
+*/
+create table owns(
+driver_id varchar(30), 
+regno varchar(20),
+foreign key(driver_id) references person,
+foreign key(regno) references car
+);
+
+insert into owns values(1,3022);
+insert into owns values(2,3023);
+insert into owns values(3,3045);
+insert into owns values(4,3032);
+insert into owns values(5,3343);
+
+create table participated(
+driver_id varchar(30),
+regno varchar(20),
+report_number int,
+damage_amount int,
+foreign key(driver_id) references person,
+foreign key(regno) references car,
+foreign key(report_number) references accident
+);
+
+insert into participated values(1,3022,12,24000);
+insert into participated values(2,3023,10,2000);
+insert into participated values(3,3045,3,20000);
+insert into participated values(4,3032,5,4000);
+insert into participated values(5,3343,7,3000);
+
+UPDATE participated
+SET damage_amount= 25000
+WHERE report_number= 12 and regno=3022;
+ 
+DELETE FROM accident 
+WHERE extract (year from accd_date)=2019;
+
+UPDATE accident
+SET accd_date=TO_DATE('2008-05-15','yyyy-mm-dd')
+WHERE extract (year from accd_date)=2016;
+
+UPDATE car
+set model='benz'
+where model='porsche';
+

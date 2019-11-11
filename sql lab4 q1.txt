@@ -1,0 +1,22 @@
+SELECT COUNT(*)
+FROM accident 
+WHERE extract (year from accd_date)=2008;
+
+select count(*)
+from participated p ,car c
+where p.regno=c.regno and c.model='benz';
+
+select name as owner_name,count(regno) as No of accidents,
+sum(damage_amt) as total damage
+group by name 
+order by sum(damage_amount)desc;
+
+select name 
+from person natural join participated 
+group by name having count(driver_id)>2;
+
+select name,driver_id
+from person,
+where driver_id not in(select driver_id from participated);
+
+ 
